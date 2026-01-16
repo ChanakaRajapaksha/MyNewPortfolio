@@ -1,6 +1,6 @@
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
 
 const FONT_WEIGHT = {
   subtitle: { min: 100, max: 400, default: 100 },
@@ -20,7 +20,7 @@ const rnderText = (text, className, baseWeight = 400) => {
 };
 
 const setupTextHover = (container, type) => {
-  if (!container) return;
+  if (!container) return () => {};
 
   const letters = container.querySelectorAll("span");
   const { min, max, default: base } = FONT_WEIGHT[type];
