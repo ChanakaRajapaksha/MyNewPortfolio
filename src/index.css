@@ -59,6 +59,79 @@ body {
       @apply text-sm font-medium text-black;
     }
   }
+
+  .clock-widget {
+    @apply flex items-center justify-center;
+    color: rgba(0, 0, 0, 0.75);
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+    
+    .clock-face {
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+    }
+
+    .clock-border {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hour-hand,
+    .minute-hand {
+      color: rgba(0, 0, 0, 0.8);
+      transition: transform 0.1s linear;
+    }
+
+    .second-hand {
+      color: rgba(255, 59, 48, 0.85);
+      transition: transform 0.1s linear;
+    }
+
+    .clock-center {
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .clock-widget-desktop {
+    @apply absolute top-20 right-8 z-40;
+    @apply flex items-center justify-center;
+    @apply bg-white/10 backdrop-blur-xl;
+    @apply rounded-3xl p-6;
+    @apply shadow-2xl;
+    @apply select-none;
+    color: rgba(0, 0, 0, 0.85);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &:hover {
+      @apply bg-white/15;
+      transform: scale(1.02);
+    }
+    
+    .clock-face {
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+    }
+
+    .clock-border {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .hour-hand,
+    .minute-hand {
+      color: rgba(0, 0, 0, 0.9);
+      transition: transform 0.1s linear;
+    }
+
+    .second-hand {
+      color: rgba(255, 59, 48, 0.9);
+      transition: transform 0.1s linear;
+    }
+
+    .clock-center {
+      color: rgba(0, 0, 0, 0.9);
+    }
+  }
 }
 
 @layer components {
