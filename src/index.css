@@ -96,6 +96,14 @@ body {
         @apply object-cover object-center;
       }
     }
+
+    .minimized-indicator {
+      @apply w-1 h-1 rounded-full bg-white/80 mt-1;
+      display: none;
+      transform: scale(0);
+      opacity: 0;
+      box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    }
   }
 
   #window-controls {
@@ -106,11 +114,11 @@ body {
     }
 
     .minimize {
-      @apply size-3.5 rounded-full bg-[#ffc030];
+      @apply size-3.5 rounded-full bg-[#ffc030] cursor-pointer;
     }
 
     .maximize {
-      @apply size-3.5 rounded-full bg-[#2acb42];
+      @apply size-3.5 rounded-full bg-[#2acb42] cursor-pointer;
     }
   }
 
