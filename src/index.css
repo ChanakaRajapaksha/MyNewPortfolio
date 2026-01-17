@@ -437,6 +437,30 @@ body {
     h2 {
       @apply font-bold text-sm text-center w-full;
     }
+
+    .txtfile-content {
+      @apply p-6 max-h-[70vh] overflow-y-auto;
+    }
+
+    .txtfile-image {
+      @apply mb-4 flex justify-center;
+
+      img {
+        @apply max-w-full h-auto rounded-lg object-contain;
+      }
+    }
+
+    .txtfile-subtitle {
+      @apply text-lg font-semibold text-gray-800 mb-4;
+    }
+
+    .txtfile-description {
+      @apply space-y-4 text-sm text-gray-700 leading-relaxed;
+
+      p {
+        @apply mb-3;
+      }
+    }
   }
 
   #imgfile {
