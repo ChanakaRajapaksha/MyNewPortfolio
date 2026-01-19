@@ -11,6 +11,7 @@ import {
   Text,
   Image,
   Contact,
+  Photos,
 } from "#windows/index.js";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
       <Text />
       <Image />
       <Contact />
+      <Photos />
 
       <Home />
     </main>

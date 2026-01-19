@@ -1,9 +1,23 @@
+import { useState, useEffect } from "react";
 import { techStack } from "#constants/index.js";
 import WindowWrapper from "#hoc/WindowWrapper.jsx";
-import { Check, Flag } from "lucide-react";
+import { Check, Clock } from "lucide-react";
 import WindowControlls from "#components/WindowControlls.jsx";
+import { useWindowStore } from "#store/windows.js";
 
 const Terminal = () => {
+  const { windows } = useWindowStore();
+  const { isOpen } = windows.terminal;
+  const [renderTime, setRenderTime] = useState(6);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Generate a random render time between 3ms and 15ms
+      const randomTime = Math.floor(Math.random() * (15 - 3 + 1)) + 3;
+      setRenderTime(randomTime);
+    }
+  }, [isOpen]);
+
   return (
     <>
       <div id="window-header">
@@ -41,12 +55,12 @@ const Terminal = () => {
 
         <div className="footnote">
           <p>
-            <Check size={20} /> 5 of 5 stacks loaded successfully (100%)
+            <Check size={20} /> 6 of 6 stacks loaded successfully (100%)
           </p>
 
           <p className="text-black">
-            <Flag size={15} fill="black" />
-            Render time: 6ms
+            <Clock size={15} />
+            Render time: {renderTime}ms
           </p>
         </div>
       </div>
