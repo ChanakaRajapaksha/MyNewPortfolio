@@ -96,40 +96,42 @@ body {
   .clock-widget-desktop {
     @apply absolute top-20 right-8 z-40;
     @apply flex items-center justify-center;
-    @apply bg-white/10 backdrop-blur-xl;
-    @apply rounded-3xl p-6;
+    @apply rounded-3xl p-4;
     @apply shadow-2xl;
     @apply select-none;
-    color: rgba(0, 0, 0, 0.85);
+    /* Glassmorphism effect - dark translucent background */
+    background: rgba(0, 0, 0, 0.25);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
 
     &:hover {
-      @apply bg-white/15;
+      background: rgba(0, 0, 0, 0.3);
       transform: scale(1.02);
     }
 
     .clock-face {
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
     }
 
-    .clock-border {
-      color: rgba(0, 0, 0, 0.6);
+    .clock-face-circle {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 
     .hour-hand,
     .minute-hand {
-      color: rgba(0, 0, 0, 0.9);
+      stroke: #f5f5f7;
+      stroke-opacity: 1;
       transition: transform 0.1s linear;
     }
 
     .second-hand {
-      color: rgba(255, 59, 48, 0.9);
       transition: transform 0.1s linear;
     }
 
-    .clock-center {
-      color: rgba(0, 0, 0, 0.9);
+    .hour-number {
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
     }
   }
 }
@@ -182,6 +184,13 @@ body {
   #window-controls {
     @apply flex gap-2;
 
+    .close,
+    .minimize,
+    .maximize {
+      @apply flex items-center justify-center;
+      position: relative;
+    }
+
     .close {
       @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
     }
@@ -192,6 +201,18 @@ body {
 
     .maximize {
       @apply size-3.5 rounded-full bg-[#2acb42] cursor-pointer;
+    }
+
+    .control-icon {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      color: rgba(0, 0, 0, 1);
+    }
+
+    .close:hover .control-icon,
+    .minimize:hover .control-icon,
+    .maximize:hover .control-icon {
+      opacity: 1;
     }
   }
 
