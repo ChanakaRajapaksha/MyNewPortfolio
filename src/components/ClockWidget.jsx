@@ -23,8 +23,55 @@ const ClockWidget = () => {
   // Second hand: 6 degrees per second
   const secondAngle = seconds * 6;
 
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const weekDays = ["S", "M", "T", "W", "T", "F", "S"];
+  const monthLabel = monthNames[time.getMonth()];
+  const year = time.getFullYear();
+  const today = time.getDate();
+  const firstDayOfMonth = new Date(year, time.getMonth(), 1).getDay();
+  const daysInMonth = new Date(year, time.getMonth() + 1, 0).getDate();
+
+  const calendarCells = Array.from({ length: firstDayOfMonth + daysInMonth }, (_, i) => {
+    if (i < firstDayOfMonth) return null;
+    return i - firstDayOfMonth + 1;
+  });
+
   return (
     <div className="clock-widget-desktop">
+      <div className="calendar-widget">
+        <div className="calendar-header">
+          <p className="month">{monthLabel}</p>
+        </div>
+        <div className="calendar-weekdays">
+          {weekDays.map((day) => (
+            <span key={day}>{day}</span>
+          ))}
+        </div>
+        <div className="calendar-grid">
+          {calendarCells.map((day, index) => (
+            <span
+              key={`${day ?? "empty"}-${index}`}
+              className={day === today ? "day active" : "day"}
+            >
+              {day ?? ""}
+            </span>
+          ))}
+        </div>
+      </div>
+
       <svg
         width="140"
         height="140"
