@@ -14,9 +14,8 @@ body {
 }
 
 @theme {
-  /* Prefer Apple system fonts on iOS/macOS, then fall back to Georama/Roboto */
-  --font-georama: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", "Georama", sans-serif;
-  --font-roboto: ui-monospace, "SF Mono", "Roboto Mono", monospace;
+  --font-georama: "Georama", sans-serif;
+  --font-roboto: "Roboto Mono", monospace;
   --breakpoint-3xl: 1920px;
 }
 
