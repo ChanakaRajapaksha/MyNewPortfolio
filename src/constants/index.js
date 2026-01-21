@@ -97,6 +97,13 @@ const blogPosts = [
     image: "/images/blog3.png",
     link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
   },
+   {
+    id: 4,
+    date: "Aug 15, 2025",
+    title: "The Ultimate Guide to Mastering GSAP Animations",
+    image: "/images/blog3.png",
+    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+  },
 ];
 
 const techStack = [

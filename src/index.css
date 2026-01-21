@@ -252,7 +252,7 @@ body {
   }
 
   #window-header {
-    @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-700;
+    @apply flex items-center justify-between px-4 py-1.5 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-700;
   }
 
   #safari {
@@ -273,36 +273,34 @@ body {
     }
 
     .blog {
+      /* Slightly smaller, fixed-width content so it doesn't blow up on maximize */
       @apply p-10 max-w-3xl mx-auto;
-      /* Main Safari content on translucent card */
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.12));
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
-      backdrop-filter: blur(20px) saturate(140%);
-
+    
       h2 {
-        @apply text-xl font-bold text-pink-600 mb-10;
+        @apply text-lg font-semibold text-pink-600 mb-6;
       }
 
       .blog-post {
-        @apply grid grid-cols-12 space-x-5;
+        @apply grid grid-cols-12 gap-4;
 
         img {
-          @apply size-full rounded-md object-cover;
+          /* Reduce image size on both normal and maximized windows */
+          @apply w-full h-28 md:h-28 rounded-md object-cover;
         }
 
         .content {
-          @apply col-span-10 space-y-3;
+          @apply col-span-10 space-y-2;
 
           p {
-            @apply text-xs text-gray-500;
+            @apply text-xs text-blue-200;
           }
 
           h3 {
-            @apply font-semibold text-base text-gray-800;
+            @apply font-semibold text-sm text-gray-800;
           }
 
           a {
-            @apply text-blue-600 text-xs hover:underline flex items-center gap-3;
+            @apply text-blue-400 text-[14px] font-medium hover:underline flex items-center gap-2;
           }
         }
       }
